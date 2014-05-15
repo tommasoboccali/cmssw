@@ -15,7 +15,7 @@ process.fwliteInput = cms.PSet(
 #"dcache:///cmsdcache//pnfs/pi.infn.it/data/cms/store/user/tboccali/WH_WToLNu_HToBB_M-120_8TeV-powheg-herwigpp/HBB_EDMNtupleV30_ProcV1_WH_WToLNu_HToBB_M-120/14fe2b624ddea84f5c39709f51bf546f/"dcap:///pnfs/cms/WAX/11/store/user/degrutto//testMET2012/PAT.edm_51_1_3LJ.root"
 #/pnfs/pi.infn.it/data/cms/store/user/tboccali/ZH_ZToNuNu_HToBB_M-120_8TeV-powheg-herwigpp/HBB_EDMNtupleV30_ProcV1_ZH_ZToNuNu_HToBB_M-120/14fe2b624ddea84f5c39709f51bf546f/"dcap:///pnfs/cms/WAX/11/store/user/degrutto//testMET2012/PAT.edm_51_1_ukR.root
 #'dcap:///pnfs/cms/WAX/11/store/user/lpchbb/msegala/Tau2012D_PromptReco_PromptV1EdmV42_GLIDEIN/PAT.edm_1000_1_zqH.root'
-'dcap:///pnfs/cms/WAX/11/store/user/lpchbb/dlopes/WH125_Summer12_53X_V42b/dlopes/WH_WToLNu_HToBB_M-125_8TeV-powheg-herwigpp/HBB_EDMNtupleV42/9803889241b1fc304f795d3b3875632d/PAT.edm_38_1_54f.root'
+'TT_Tune4C_13TeV-pythia8-tauola_PAT.root'
 ),
 
     PUmcfileName2011B= cms.string("Summer12MCObserved.root"),
@@ -142,7 +142,7 @@ process.Analyzer = cms.PSet(
        
    ),
     isMC =     cms.bool(True),
-    verbose = cms.bool(False),
+    verbose = cms.bool(True),
     readFromCandidates = cms.bool(False),
     jetPtThresholdZ = cms.double(20),
     jetPtThresholdW = cms.double(20),

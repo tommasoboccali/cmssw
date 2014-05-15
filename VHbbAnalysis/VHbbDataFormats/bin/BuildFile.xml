@@ -14,12 +14,11 @@
 <use   name="RecoBTag/SecondaryVertex"/>
 <use   name="lhapdf"/>
 <use   name="CondFormats/JetMETObjects"/>
+<use   name="VHbbAnalysis/HbbAnalyzer"/>
 <environment>
-  <bin  file="make_histos.cxx"></bin>
-  <bin  file="TMVAClassification.cxx"></bin>
-  <bin  file="make_tree.cxx"></bin>
-  <bin  file="Ntupler.cc"></bin>
-  <bin  file="Ntupler7TeV.cc"></bin>
-  <bin  file="VHbbTnP.cc"></bin>
-  <bin  file="Updater.cc"></bin>
+<flags CXXFLAGS="-Wno-error=reorder -Wno-reorder -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-unused-but-set-variable -Wno-error=maybe-uninitialized -g"/>
+
+  <bin  file="Ntupler_onlyHbbev.cc"></bin>
+  <bin  file="Ntupler_tom.cc"></bin>
+
 </environment>

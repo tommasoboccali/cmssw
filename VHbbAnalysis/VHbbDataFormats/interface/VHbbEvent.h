@@ -13,7 +13,8 @@ class VHbbEvent{
     public:
     SimpleJet(): flavour(-99), isSemiLept(-99), isSemiLeptMCtruth(-99), SoftLeptpdgId(-99), SoftLeptIdlooseMu(-99), SoftLeptId95(-99), SoftLeptPt(-99), SoftLeptdR(-99), SoftLeptptRel(-99),  SoftLeptRelCombIso(-99),   tche(-99), tchp(-99), jpb(-99), jp(-99), 
       ssvhe(-99), csv(-99), csvmva(-99), csvivf(-99), cmva(-99),
-      vtxMass(-99), vtx3dL(-99), vtx3deL(-99), vtxNTracks(-99), vtxProb(-99),
+      vtxMass(-99), vtx3dL(-99), vtx3deL(-99), vtxNTracks(-99), vtxProb(-99),csvNTracks(-99), btagNTracks(-99),
+
       ntracks(-99), charge(-99),jecunc(-99),
       chargedHadronEFraction(-99), neutralHadronEFraction(-99), chargedEmEFraction(-99), neutralEmEFraction(-99),nConstituents(-99), ptRaw(-99), ptLeadTrack(-99), jetArea(-99),
       bestMCid(-99), bestMCmomid(-99),
@@ -136,8 +137,9 @@ class VHbbEvent{
       sihih(-99), Dphi(-99), Deta(-99), HoE(-99), convDist(-99), convDcot(-99), innerHits(-99),
       isEB(false),isEE(false),
       ipDb(-99), ipErrDb(-99),
-      id95(-99),id85(-99),id80(-99),id70(-99),
-      id95r(-99),id85r(-99),id80r(-99),id70r(-99),
+      //      id95(-99),id85(-99),id80(-99),id70(-99),
+      //      id95r(-99),id85r(-99),id80r(-99),id70r(-99),
+      loose(-99), robustLoose(-99), tight(-99), robustTight(-99), robustHighEnergy(-99),
       mcId(-99), mcMomId(-99), mcgMomId (-99),
       dxy(-99), dz(-99),pfPhoIsoDoubleCounted(-99),
      //MVA ELEID 2012 input vars (keep same names to make life easier in integrating with MVA evaluation code
@@ -153,7 +155,8 @@ class VHbbEvent{
     bool isEB,isEE;
     float       ipDb, ipErrDb, dxy,dz;
     float pfPhoIsoDoubleCounted;
-    float  id95,id85,id80,id70,id95r, id85r,id80r, id70r;
+    //float  id95,id85,id80,id70,id95r, id85r,id80r, id70r;
+    float loose, robustLoose, tight, robustTight, robustHighEnergy;
     float fMVAVar_EoP, fMVAVar_HoE, fMVAVar_IoEmIoP, fMVAVar_PreShowerOverRaw, fMVAVar_R9, fMVAVar_d0, fMVAVar_deta, fMVAVar_detacalo, fMVAVar_dphi, fMVAVar_e1x5e5x5, fMVAVar_eleEoPout, fMVAVar_eta, fMVAVar_etawidth, fMVAVar_fbrem, fMVAVar_gsfchi2, fMVAVar_ip3d, fMVAVar_kfchi2, fMVAVar_kfhits, fMVAVar_phiwidth, fMVAVar_pt, fMVAVar_see, fMVAVar_spp, mvaOut,mvaOutTrig;
     TLorentzVector mcFourMomentum;
     int mcId, mcMomId, mcgMomId;

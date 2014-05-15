@@ -1809,7 +1809,8 @@ double MyWeight = LumiWeights_.weight( Tnpv );
           input3DPU->Fill(PUm1,PU0,PUp1);	  
 //	  PUweight2011B = lumiWeights2011B.weight3D( puitm1->second, puit0->second,puitp1->second); 
 	  PUweight1DObs = lumiWeights1DObs.weight( npu); 
-	}
+	  }
+	
 	countWithPU->Fill(1,PUweight);
 	countWithPUP->Fill(1,PUweightP);
 	countWithPUM->Fill(1,PUweightM);
@@ -1918,6 +1919,8 @@ double MyWeight = LumiWeights_.weight( Tnpv );
 	  lheV_pt = V_tlv.Pt();
 	}
 
+	
+
 	//std::cout << "lhe V pt = " << lheV_pt << std::endl;
 
 	//Write event info 
@@ -1938,6 +1941,7 @@ double MyWeight = LumiWeights_.weight( Tnpv );
 	const std::vector<VHbbCandidate> * candW ;
 	VHbbEvent modifiedEvent;;
 	const VHbbEvent *  iEvent =0;
+	
 	if(fromCandidate)
 	  {
 	    fwlite::Handle< std::vector<VHbbCandidate> > vhbbCandHandleZ;
@@ -1972,7 +1976,7 @@ double MyWeight = LumiWeights_.weight( Tnpv );
 
 	      }
             countWithSignalQCDcorrections->Fill(1,weightSignalQCD);
-
+	  
             if(isMC_)
             {
 
@@ -3064,7 +3068,7 @@ if(genH.pt>0)
     inFile->Close();
     // close input file
   } // loop on files
-     
+    
   
   std::cout << "Events: " << ievt <<std::endl;
   std::cout << "TotalCount: " << totalcount <<std::endl;

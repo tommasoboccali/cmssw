@@ -82,6 +82,8 @@ void HbbCandidateFinderAlgo::run (const VHbbEvent* event, std::vector<VHbbCandid
   // first find the jets
   //
 
+  std::cout <<" run got "<< event->simpleJets2.size() <<std::endl;
+
   VHbbCandidateTools selector(verbose_);
   std::vector<VHbbEvent::SimpleJet> noOverlap;
   for(size_t j=0; j< event->simpleJets2.size(); j++)
@@ -97,7 +99,7 @@ void HbbCandidateFinderAlgo::run (const VHbbEvent* event, std::vector<VHbbCandid
      if(!overlap) noOverlap.push_back(event->simpleJets2[j]);
      else 
      {
-    //    std::cout << "jet removed in cleaning" << std::endl;
+       std::cout << "jet removed in cleaning" << std::endl;
      }   
   }
 
@@ -397,7 +399,7 @@ if (jets[index1].p4.Pt()<(jets[index2].p4.Pt())){
 bool HbbCandidateFinderAlgo::findDiJetsHighestPt (const std::vector<VHbbEvent::SimpleJet>& jetsin, VHbbEvent::SimpleJet& j1, VHbbEvent::SimpleJet& j2,std::vector<VHbbEvent::SimpleJet>& addJets, size_t * indices){
   
   if (verbose_){
-    std::cout <<" CandidateFinder: Input Jets = "<<jetsin.size()<<std::endl;
+    std::cout <<" finddijets CandidateFinder: Input Jets = "<<jetsin.size()<<std::endl;
   }
   if (jetsin.size()<2) return false;
   
@@ -434,7 +436,8 @@ bool HbbCandidateFinderAlgo::findDiJetsHighestPt (const std::vector<VHbbEvent::S
   for (unsigned int i =0; i< jets.size()-1; ++i){
     for (unsigned int j =i+1; j< jets.size(); ++j){
       float pt = (jets[i].p4+jets[j].p4).Pt();
-      if (pt>highestPt && jets[j].p4.Pt()> jetPtThreshold && jets[i].p4.Pt()> jetPtThreshold && fabs(jets[i].p4.Eta()) < etaThr &&  fabs(jets[j].p4.Eta()) < etaThr && jetID(jets[i]) && jetID(jets[j]) && jets[i].puJetIdL >0&& jets[j].puJetIdL >0 ){
+      //   TOM FIX    if (pt>highestPt && jets[j].p4.Pt()> jetPtThreshold && jets[i].p4.Pt()> jetPtThreshold && fabs(jets[i].p4.Eta()) < etaThr &&  fabs(jets[j].p4.Eta()) < etaThr && jetID(jets[i]) && jetID(jets[j]) && jets[i].puJetIdL >0&& jets[j].puJetIdL >0 ){
+      if (pt>highestPt && jets[j].p4.Pt()> jetPtThreshold && jets[i].p4.Pt()> jetPtThreshold && fabs(jets[i].p4.Eta()) < etaThr &&  fabs(jets[j].p4.Eta()) < etaThr){
 	highestPt = pt;
 	highesti=i;
 	highestj=j;
@@ -604,7 +607,7 @@ bool HbbCandidateFinderAlgo::findFatJet (const std::vector<VHbbEvent::HardJet>& 
   for (unsigned int  it = 0; it< electrons.size(); ++it){
     if (
         // fake
-        (fabs(electrons[it].id95 - 7)) < 0.1  &&
+        (fabs(electrons[it].robustLoose - 7)) < 0.1  &&
         fabs(electrons[it].p4.Eta()) < 2.5 &&
 //Remove this workaround as now we have the proper flags
 //      !( fabs(electrons[it].p4.Eta()) < 1.57 && fabs(electrons[it].p4.Eta()) > 1.44) &&
