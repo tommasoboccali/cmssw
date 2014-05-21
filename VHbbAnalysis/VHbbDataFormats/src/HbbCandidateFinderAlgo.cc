@@ -82,7 +82,7 @@ void HbbCandidateFinderAlgo::run (const VHbbEvent* event, std::vector<VHbbCandid
   // first find the jets
   //
 
-  std::cout <<" run got "<< event->simpleJets2.size() <<std::endl;
+  //  std::cout <<" run got "<< event->simpleJets2.size() <<std::endl;
 
   VHbbCandidateTools selector(verbose_);
   std::vector<VHbbEvent::SimpleJet> noOverlap;
@@ -99,7 +99,7 @@ void HbbCandidateFinderAlgo::run (const VHbbEvent* event, std::vector<VHbbCandid
      if(!overlap) noOverlap.push_back(event->simpleJets2[j]);
      else 
      {
-       std::cout << "jet removed in cleaning" << std::endl;
+       //       std::cout << "jet removed in cleaning" << std::endl;
      }   
   }
 
@@ -121,7 +121,7 @@ void HbbCandidateFinderAlgo::run (const VHbbEvent* event, std::vector<VHbbCandid
   }
 */
   if (verbose_){
-    std::cout <<" Found Dijets: "<<foundJets<< " Additional: "<<addJets.size()<< std::endl;
+        std::cout <<" Found Dijets: "<<foundJets<< " Additional: "<<addJets.size()<< std::endl;
   }
   
 //  if (foundJets == false) return;
